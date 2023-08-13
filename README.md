@@ -14,43 +14,45 @@ _Create workflows that enable you to use Continuous Integration (CI) for your pr
 </header>
 
 <!--
-  <<< Author notes: Step 2 >>>
+  <<< Author notes: Step 3 >>>
   Start this step by acknowledging the previous step.
   Define terms and link to docs.github.com.
 -->
 
-## Step 2: Fix the test
+## Step 3: Upload test reports
 
-_Great job adding the templated workflow! :tada:_
+_The workflow has finished running! :sparkles:_
 
-Adding that file to this branch is enough for GitHub Actions to begin running CI on your repository.
+So what do we do when we need the work product of one job in another? We can use the built-in [artifact storage](https://docs.github.com/en/actions/advanced-guides/storing-workflow-data-as-artifacts) to save artifacts created from one job to be used in another job within the same workflow.
 
-When a GitHub Actions workflow is running, you should see some checks in progress, like the screenshot below.
+To upload artifacts to the artifact storage, we can use an action built by GitHub: [`actions/upload-artifacts`](https://github.com/actions/upload-artifact).
 
-<img alt="checks in progress in a merge box" src=https://user-images.githubusercontent.com/16547949/66080348-ecc5f580-e533-11e9-909e-c213b08790eb.png width=400 />
+### :keyboard: Activity: Upload test reports
 
-You can follow along as GitHub Actions runs your job by going to the **Actions** tab or by clicking on "Details" in the merge box below.
+1. Edit your workflow file.
+1. Add a step to your `build` job that uses the `upload-artifacts` action.
 
-When the tests finish, you'll see a red X :x: or a green check mark :heavy_check_mark: in the merge box. At that point, you'll have access to logs for the build job and its associated steps.
+   ```yaml
+   build:
+     runs-on: ubuntu-latest
+     steps:
+       - uses: actions/checkout@v3
 
-_By looking at the logs, can you identify which tests failed?_ To find it, go to one of the failed builds and scrolling through the log. Look for a section that lists all the unit tests. We're looking for the name of the test with an "x".
+       - name: Run markdown lint
+         run: |
+           npm install remark-cli remark-preset-lint-consistent
+           npx remark . --use remark-preset-lint-consistent --frail
 
-<img alt="screenshot of a sample build log with the names of the tests blurred out" src=https://user-images.githubusercontent.com/16547949/65922013-e740a200-e3b1-11e9-8151-faf52c30201e.png width=400 />
-
-If the checks don't appear or if the checks are stuck in progress, there's a few things you can do to try and trigger them:
-
-- Refresh the page, it's possible the workflow ran and the page just hasn't been updated with that change.
-- Try making a commit on this branch. Our workflow is triggered with a `push` event, and committing to this branch will result in a new `push`.
-- Edit the workflow file on GitHub and ensure there are no red lines indicating a syntax problem.
-
-### :keyboard: Activity: Fix the test
-
-1. Update the code in the `ci` branch to get the test to pass. You need to look something like this:
-   ```markdown
-   _underscore_
+       - uses: actions/upload-artifact@v3
+         with:
+           name: remark-lint-report
+           path: public/
    ```
-1. **Commit changes**.
+
+1. Commit your change to this branch.
 1. Wait about 20 seconds then refresh this page (the one you're following instructions from). [GitHub Actions](https://docs.github.com/en/actions) will automatically update to the next step.
+
+Similar to the upload action to send artifacts to the storage, you can use another action built by GitHub to download these previously uploaded artifacts from the `build` job: [`actions/download-artifact`](https://github.com/actions/download-artifact). To save you time, we'll skip that step for this course.
 
 <footer>
 
