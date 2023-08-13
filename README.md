@@ -1,56 +1,25 @@
-<header>
-
 <!--
-  <<< Author notes: Course header >>>
-  Include a 1280×640 image, course title in sentence case, and a concise description in emphasis.
-  In your repository settings: enable template repository, add your 1280×640 social image, auto delete head branches.
-  Add your open source license, GitHub uses MIT license.
+  <<< Author notes: Finish >>>
+  Review what we learned, ask for feedback, provide next steps.
 -->
 
-# Test with Actions
+## Finish
 
-_Create workflows that enable you to use Continuous Integration (CI) for your projects._
+_Congratulations friend, you've completed this course!_
 
-</header>
+<img src=https://octodex.github.com/images/Fintechtocat.png alt=celebrate width=300 align=right>
 
-<!--
-  <<< Author notes: Step 4 >>>
-  Start this step by acknowledging the previous step.
-  Define terms and link to docs.github.com.
--->
+Here's a recap of all the tasks you've accomplished in your repository:
 
-## Step 4: Add branch protections
+- We created an Actions workflow to lint our Markdown files.
+- You caught an issue in a file and fixed the issue before it could make it to `main`.
+- You learned how to use build artifacts for test reports.
+- You enabled branch protections to require the workflow to pass before merging.
 
-_Great job uploading test reports! :partying_face:_
+### What's next?
 
-Take a look at the merge box, you'll notice you can merge this even though the review process hasn't been met.
-
-Protected branches ensure that collaborators on your repository cannot make irrevocable changes to branches. Enabling protected branches also allows you to enable other optional checks and requirements, like required status checks and required reviews.
-
-### :keyboard: Activity: Add branch protections
-
-1. Go to **Branches** settings. You can navigate to that page manually by clicking on the right-most tab in the top of the repository called **Settings** and then clicking on **Branches**.
-1. Click on **Add rule** under "Branch protection rules".
-1. Type `main` in **Branch name pattern**.
-1. Check **Require a pull request before merging**.
-1. Check **Require status checks to pass before merging**.
-1. Check all build and test jobs that you'd like to see in the newly visible gray box.
-1. Click **Create**.
-1. _Once you turn on branch protection, Actions can no longer push directly to `main`. You'll need to open the next step on your own._
-
-<!-- Wait about 20 seconds then refresh this page (the one you're following instructions from). [GitHub Actions](https://docs.github.com/en/actions) will automatically update to the next step. -->
-
-<footer>
-
-<!--
-  <<< Author notes: Footer >>>
-  Add a link to get support, GitHub status page, code of conduct, license link.
--->
-
----
-
-Get help: [Post in our discussion board](https://github.com/skills/.github/discussions) &bull; [Review the GitHub status page](https://www.githubstatus.com/)
-
-&copy; 2023 GitHub &bull; [Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md) &bull; [MIT License](https://gh.io/mit)
-
-</footer>
+- Get more ideas of what you can do with [awesome actions](https://github.com/sdras/awesome-actions).
+- We'd love to hear what you thought of this course [in our discussion board](https://github.com/skills/.github/discussions).
+- [Take another GitHub Skills course](https://github.com/skills).
+- [Read the GitHub Getting Started docs](https://docs.github.com/en/get-started).
+- To find projects to contribute to, check out [GitHub Explore](https://github.com/explore).
